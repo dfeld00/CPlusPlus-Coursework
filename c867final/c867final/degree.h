@@ -1,5 +1,4 @@
-#ifndef DEGREE
-#def DEGREE
+#pragma once
 
 // Enum type for part D.
 enum DegreeProgram {

@@ -4,13 +4,17 @@
 //
 //  Created by Dallas Feldbush on 1/24/26.
 //
-
+#include "degree.h"
+#include "roster.h"
+#include "student.h"
 #include <iostream>
+#include <string>
+#include <vector>
 
 using namespace std;
 
 
-int main(int argc, const char * argv[]) {
+int main(/*int argc, const char * argv[] ***DONT KNOW WHY THIS IS HERE FIXME */) {
     
     const string studentData[] =
 
