@@ -1,4 +1,7 @@
 #pragma once
+#include <string>
+
+using namespace std;
 
 // Enum type for part D.
 enum DegreeProgram {
@@ -6,3 +9,5 @@ enum DegreeProgram {
     NETWORK,
     SOFTWARE
 };
+
+static const string degreeProgramStrings[] = { "SECURITY", "NETWORK", "SOFTWARE" };

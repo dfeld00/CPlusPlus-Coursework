@@ -45,4 +45,5 @@ void Student::print() { // To print a specific layout per part E.2
     cout << "Age: "            << getAge() << "\t";
     cout << "daysInCourse: {"  << getDays()[0] << ", " << getDays()[1] << ", " << getDays()[2] << "} ";
     cout << "Degree Program: " << getDegreeProgram() << endl;
+    
 }
