@@ -14,7 +14,7 @@
 using namespace std;
 
 
-int main(/*int argc, const char * argv[] ***DONT KNOW WHY THIS IS HERE FIXME */) {
+int main() {
     
     const string studentData[] =
 
@@ -28,5 +28,9 @@ int main(/*int argc, const char * argv[] ***DONT KNOW WHY THIS IS HERE FIXME */)
 
     "A5,Dallas,Feldbush,dfeldb2@wgu.edu,25,30,30,30, SOFTWARE"};
     
+    
+
+    
     return 0;
+    
 }
