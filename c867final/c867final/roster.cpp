@@ -7,15 +7,6 @@
 
 using namespace std;
 
-const int rosterSize = 5;
-
-const string studentData[rosterSize] = {
-   "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
-   "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
-   "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
-   "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
-   "A5,Dallas,Feldbush,dfeldb2@wgu.edu,25,30,30,30, SOFTWARE"};
-
 Roster::Roster() {
     
 };
@@ -49,7 +40,6 @@ void Roster::parse(string studentData)
     firstComma = studentData.find(",", nextComma);
     int Days1 = stoi(studentData.substr(nextComma, firstComma - nextComma));
                 
-
     nextComma = firstComma + 1;
     firstComma = studentData.find(",", nextComma);
     int Days2 = stoi(studentData.substr(nextComma, firstComma - nextComma));
@@ -64,16 +54,18 @@ void Roster::parse(string studentData)
 
 void Roster::add(string StudentID, string FirstName, string LastName, string Email, int Age, int Days1, int Days2, int Days3, DegreeProgram degreeProgram) {
     
-    int Days[3] = { Days1, Days2, Days3};
+    int Days[3] = {Days1, Days2, Days3};
 
     classRosterArray[++LastIndex] = new Student(StudentID, FirstName, LastName, Email, Age, Days, degreeProgram);
 };
 
 void Roster::remove(string studentID) {
     bool matching = false;
+    
     for (int i = 0; i <= Roster::LastIndex; i++) {
         if (classRosterArray[i]->getStudentID() == studentID) {
             matching = true;
+            
             if (i < numberOfStudents - 1) {
                 Student* temp = classRosterArray[i];
                 classRosterArray[i] = classRosterArray[numberOfStudents - 1];
@@ -82,6 +74,13 @@ void Roster::remove(string studentID) {
             Roster::LastIndex--;
         }
     }
+        if (matching) {
+            cout << studentID << " removed from roster." << endl;
+        }
+        else {
+            cout << studentID << " studentID not found" << endl;
+        }
+    
 };
 
 void Roster::printAll() {
@@ -102,10 +101,11 @@ void Roster::printAverageDaysInCourse(string studentID) {
     for (int i = 0; i <= Roster::LastIndex; i++)
         {
             if (classRosterArray[i]->getStudentID() == studentID) {
-                cout << studentID ;
+                cout << "Student ID: " << studentID << " " << "Average days in course: ";
                 cout << (classRosterArray[i]->getDays()[0] +
                          classRosterArray[i]->getDays()[1] +
                          classRosterArray[i]->getDays()[2])/3;
+                cout << endl;
             }
         }
 };
@@ -116,18 +116,17 @@ void Roster::printInvalidEmails() {
     string EmailAddress = (classRosterArray[i]->getEmail());
         if (EmailAddress.find("@") == string::npos || (EmailAddress.find('.') == string::npos) || (EmailAddress.find(' ') != string::npos)) {
             invalid = true;
-            cout << EmailAddress << ": " << classRosterArray[i]->getEmail() << endl;
+            cout << EmailAddress << endl;
         }
-    }
-    if (!invalid) {
-        cout << "No Invalid Emails" << endl;
     }
 };
 void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
         for (int i = 0; i <= Roster::LastIndex; i++) {
-            if (Roster::classRosterArray[i]->getDegreeProgram() == degreeProgram) classRosterArray[i]->print();
+            if (Roster::classRosterArray[i]->getDegreeProgram() == degreeProgram) {
+                classRosterArray[i]->print();
+                cout << endl;
+            }
         }
-        cout << endl;
 };
 
 Roster::~Roster() { // To reclaim memory after finished with array

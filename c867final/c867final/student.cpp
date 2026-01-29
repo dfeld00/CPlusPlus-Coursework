@@ -5,13 +5,14 @@
 
 using namespace std;
 
-Student::Student(string studentID, string firstName, string lastName, string email, int age, int days[], DegreeProgram degreeProgram) {
+Student::Student(string studentID, string firstName, string lastName, string email, int age, int Days[], DegreeProgram degreeProgram) {
     setStudentID(studentID);
     setFirstName(firstName);
     setLastName(lastName);
     setEmail(email);
     setAge(age);
-    
+    for (int i = 0; i < DaysToComplete; i++) this->Days[i] = Days[i];
+    this->degreeProgram = degreeProgram;
 }
 // Variable used in for loop
 int i = 0;
@@ -24,7 +25,7 @@ void Student::setEmail(string email)         {this->email = email;}
 void Student::setAge(int age)                {this->age = age;}
 void Student::setDays(int days[]) {          // Initializes days array
     for (i = 0; i < DaysToComplete; ++i) {
-        this->days[i] = days[i];
+        Days[i] = days[i];
     }
 }
 void Student::setDegreeProgram(DegreeProgram degreeProgram) {this->degreeProgram = degreeProgram;}
@@ -35,15 +36,16 @@ string Student::getFirstName() {return firstName;}
 string Student::getLastName()  {return lastName;}
 string Student::getEmail()     {return email;}
 int    Student::getAge()       {return age;}
-int*   Student::getDays()      {return this->days;}
+int*   Student::getDays()      {return this->Days;}
 DegreeProgram Student::getDegreeProgram() {return degreeProgram;}
 
 void Student::print() { // To print a specific layout per part E.2
-    cout << "A1\tFirst Name: " << getFirstName() << "\t";
+    cout << this->getStudentID() << "\t";
+    cout << "First Name: " << getFirstName() << "\t";
     cout << "Last Name: "      << getLastName() << "\t";
     cout << "Email: "          << getEmail() << "\t";
     cout << "Age: "            << getAge() << "\t";
     cout << "daysInCourse: {"  << getDays()[0] << ", " << getDays()[1] << ", " << getDays()[2] << "} ";
-    cout << "Degree Program: " << getDegreeProgram() << endl;
-    
+    //cout << "Degree Program: " << getDegreeProgram() << endl;    FIXME
+    //cout << degreeProgramStrings[this->getDegreeProgram()] << endl;   FIXME
 }

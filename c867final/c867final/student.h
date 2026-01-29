@@ -15,12 +15,12 @@ private:
     string lastName;
     string email;
     int    age;
-    int    days[DaysToComplete];
+    int    Days[DaysToComplete];
     DegreeProgram degreeProgram;
     
 public:
     // Constructor declaration to assign all variables
-    Student(string studentID, string firstName, string lastName, string email, int age, int days[], DegreeProgram degreeProgram);
+    Student(string studentID, string firstName, string lastName, string email, int age, int Days[], DegreeProgram degreeProgram);
     //Accessors to get variables for part E.2
     string getStudentID();
     string getFirstName();
