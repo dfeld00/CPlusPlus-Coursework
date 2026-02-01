@@ -78,14 +78,15 @@ void Roster::remove(string studentID) {
             cout << studentID << " removed from roster." << endl;
         }
         else {
-            cout << studentID << " studentID not found" << endl;
+            cout << "Not found" << endl;
         }
     
 };
 
 void Roster::printAll() {
     for (int i = 0; i <= Roster::LastIndex; i++) {
-        cout << classRosterArray[i]->getStudentID() << '\t';
+        classRosterArray[i]->print();
+        /*cout << classRosterArray[i]->getStudentID() << '\t';
         cout << classRosterArray[i]->getFirstName() << '\t';
         cout << classRosterArray[i]->getLastName() << '\t';
         cout << classRosterArray[i]->getEmail() << '\t';
@@ -93,7 +94,7 @@ void Roster::printAll() {
         cout << classRosterArray[i]->getDays()[0] << '\t';
         cout << classRosterArray[i]->getDays()[1] << '\t';
         cout << classRosterArray[i]->getDays()[2] << '\t';
-        cout << degreeProgramStrings[classRosterArray[i]->getDegreeProgram()] << endl;
+        cout << degreeProgramStrings[classRosterArray[i]->getDegreeProgram()] << endl;*/
         }
 };
 
