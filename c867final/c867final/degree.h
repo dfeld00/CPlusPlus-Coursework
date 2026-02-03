@@ -10,4 +10,4 @@ enum DegreeProgram {
     SOFTWARE
 };
 
-static const string degreeProgramStrings[] = { "SECURITY", "NETWORK", "SOFTWARE" };
+static const string degreeProgramStrings[] = { "Security", "Network", "Software" };
