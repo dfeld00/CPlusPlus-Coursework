@@ -57,8 +57,10 @@ int main() {
     cout << "Removing Student A3" << endl;
     classRoster.remove("A3");
     cout << endl;
+    
+    classRoster.printAll();
 
-    cout << "Removing Student A3 again" << endl;
+    cout << endl << "Removing Student A3 again" << endl;
     classRoster.remove("A3");
     cout << endl;
 
